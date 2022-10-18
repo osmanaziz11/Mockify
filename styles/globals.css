@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --background: #0d1117;
+  --nav-bg: #161b22;
+  --font: #ffffff;
+  --nav-hover: #f78166;
+  --border: #514e4e;
+  --font-dim: #b7b7b7;
+  --family: 'Comfortaa';
+  --warning-btn: #870303;
+}
+body {
+  width: 100% !important;
+  height: 100vh !important;
+  background-color: var(--background) !important;
+  color: var(--font) !important;
+  font-family: var(--family) !important;
+}
+a {
+  text-decoration: none;
+  color: var(--font);
+}
+a:hover {
+  color: var(--font) !important;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* =========== Components ============ */
+/* Navbar  */
+.header {
+  /* border-bottom: 1px solid var(--border); */
+  background-color: var(--nav-bg);
+}
+.Logo__container h2 {
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+.nav__container ul li {
+  letter-spacing: 2px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.nav__container ul li:hover {
+  color: var(--nav-hover) !important;
+}
+.hamburger-react {
+  position: relative;
+  bottom: 8px;
+}
+.activeRoute {
+  color: var(--nav-hover) !important;
+}
+/* Navbar Ends  */
+
+/* Side Menu  */
+.main__container {
+  background-color: var(--background);
+  z-index: 999999999999;
+  width: 100%;
+  height: calc(100vh - 93px);
+  transition: all 0.5s;
+  right: 0px !important;
+  opacity: 0;
+  visibility: hidden;
+}
+.main__container a {
+  font-size: 13px;
+  text-decoration: none;
+  color: rgb(255 255 255);
+  top: 77.39px;
+  transition: all 0.5s;
+  right: -900px;
+  letter-spacing: 1.5px;
+}
+/* Side Menu Ends  */
+
+/* Footer  */
+.footer .styleBar {
+  width: 90%;
+  background-color: var(--border);
+  height: 1px;
+}
+/* Footer Ends */
+
+/* ===================== */
+/* Pages  */
+/* ===================== */
+/* Detective  */
+.singleBoard {
+  width: 280px;
+  height: 230px;
+  border: 1px solid var(--border);
+}
+/* Amazon  */
+.URL_box,
+.product__container {
+  border: 1px solid var(--border);
+}
+.URL_box button {
+  outline: none;
+}
+.URL_box input {
+  border: none;
+  background: transparent !important;
+  color: var(--font-dim);
+  width: 85%;
+  padding: 5px;
+  outline: none;
+}
+.product__box {
+  width: 220px;
+  height: 300px;
+}
+.product__desc button {
+  background-color: var(--warning-btn);
+  border: none;
+  color: var(--font);
+  outline: none;
+}
+.product__container {
+  min-height: 350px;
+}
+/* Detective Ends */
