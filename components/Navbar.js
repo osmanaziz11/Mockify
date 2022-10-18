@@ -25,37 +25,37 @@ const Navbar = () => {
         </div>
         <div className="col-8 nav__container p-4 pb-3 d-flex justify-content-end">
           <ul className="list-unstyled d-md-flex d-none m-0 p-0 mt-3">
-            <Link href="/About">
+            <Link href="/about">
               <li
                 className={`mx-4 ${
-                  router.pathname == '/About' ? 'activeRoute' : ''
+                  router.pathname == '/about' ? 'activeRoute' : ''
                 }`}
               >
                 About
               </li>
             </Link>
-            <Link href="/Detective">
+            <Link href="/Jobs">
               <li
                 className={`mx-4 ${
-                  router.pathname == '/Detective' ? 'activeRoute' : ''
+                  router.pathname == '/Jobs' ? 'activeRoute' : ''
                 }`}
               >
                 Find Jobs
               </li>
             </Link>
-            <Link href="/How-it-works">
+            <Link href="/investigate">
               <li
                 className={`mx-4 ${
-                  router.pathname == '/How-it-works' ? 'activeRoute' : ''
+                  router.pathname == '/investigate' ? 'activeRoute' : ''
                 }`}
               >
                 Investigate
               </li>
             </Link>
-            <Link href="/How-it-works">
+            <Link href="/how-it-works">
               <li
                 className={`mx-4 ${
-                  router.pathname == '/How-it-works' ? 'activeRoute' : ''
+                  router.pathname == '/how-it-works' ? 'activeRoute' : ''
                 }`}
               >
                 How it works

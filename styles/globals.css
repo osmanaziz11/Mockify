@@ -12,6 +12,9 @@
   --font-dim: #b7b7b7;
   --family: 'Comfortaa';
   --warning-btn: #870303;
+  --green: #41c220;
+  --warning: #ffd600;
+  --danger: #ff0000;
 }
 body {
   width: 100% !important;
@@ -92,39 +95,64 @@ img {
 /* ===================== */
 /* Pages  */
 /* ===================== */
-/* Detective  */
+/* Jobs  */
 .singleBoard {
   width: 280px;
   height: 230px;
   border: 1px solid var(--border);
 }
-/* Amazon  */
-.URL_box,
-.product__container {
+/* Indeed  */
+.indeed_board_container .search {
   border: 1px solid var(--border);
+  height: 80%;
+  transition: all 0.5s;
 }
-.URL_box button {
-  outline: none;
+.indeed_board_container .search button {
+  background-color: var(--warning-btn);
+  color: var(--font);
+  border: none;
 }
-.URL_box input {
+.indeed_board_container .search input {
+  width: 95%;
   border: none;
   background: transparent !important;
-  color: var(--font-dim);
-  width: 85%;
-  padding: 5px;
   outline: none;
-}
-.product__box {
-  width: 220px;
-  height: 300px;
-}
-.product__desc button {
-  background-color: var(--warning-btn);
-  border: none;
   color: var(--font);
-  outline: none;
 }
-.product__container {
-  min-height: 350px;
+.post__container {
+  border: 1px solid var(--border);
 }
-/* Detective Ends */
+.graph__container button {
+  background-color: var(--warning-btn);
+  color: var(--font);
+  border: none;
+  letter-spacing: 3px;
+  padding: 8px;
+  width: 90%;
+}
+/* Error Classes  */
+.green {
+  border: 1px solid var(--green) !important;
+}
+.warning {
+  border: 1px solid var(--warning) !important;
+}
+.danger {
+  border: 1px solid var(--danger) !important;
+}
+
+/* Login  */
+.login__container {
+  border: 1px solid var(--border);
+  height: 400px;
+}
+.login__container .options button {
+  border: 1px solid var(--border);
+
+  background: none;
+  color: var(--font);
+  border-radius: 30px;
+}
+
+/* Login Ends */
+/* Jobs Ends */

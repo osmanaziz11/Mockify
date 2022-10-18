@@ -16,14 +16,14 @@ const Menu = () => {
         <div className="col h-100">
           <ul className="list-unstyled p-0 d-flex flex-column align-items-center w-100 h-100">
             <li className="my-3">
-              <Link href="/">
+              <Link href="/About">
                 <a className={router.pathname == '/' ? 'activeRoute' : ''}>
                   About
                 </a>
               </Link>
             </li>
             <li className="my-3">
-              <Link href="/portfolio">
+              <Link href="/Jobs">
                 <a
                   className={
                     router.pathname == '/portfolio' ? 'activeRoute' : ''
@@ -34,7 +34,7 @@ const Menu = () => {
               </Link>
             </li>
             <li className="my-3">
-              <Link href="/wedding">
+              <Link href="/Investigate">
                 <a
                   className={router.pathname == '/wedding' ? 'activeRoute' : ''}
                 >
@@ -43,7 +43,7 @@ const Menu = () => {
               </Link>
             </li>
             <li className="my-3">
-              <Link href="/wedding">
+              <Link href="/How-it-works">
                 <a
                   className={router.pathname == '/wedding' ? 'activeRoute' : ''}
                 >

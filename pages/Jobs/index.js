@@ -1,11 +1,11 @@
 import Layout from '../../components/Layout';
 import Board from './components/Board';
 
-const Detective = () => {
+const Jobs = () => {
   return (
-    <Layout title="Detective">
+    <Layout title="Find Jobs">
       <Board></Board>
     </Layout>
   );
 };
-export default Detective;
+export default Jobs;
