@@ -16,6 +16,9 @@
   --warning: #ffd600;
   --danger: #ff0000;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 body {
   width: 100% !important;
   height: 100vh !important;

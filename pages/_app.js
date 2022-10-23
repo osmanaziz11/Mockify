@@ -9,10 +9,12 @@ import { useState, useEffect, createContext } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 
 const navContext = createContext();
+const Authentication = createContext();
 
 function MyApp({ Component, pageProps }) {
   const [progress, setProgress] = useState(0);
   const [NavStatus, setNavStatus] = useState('False');
+  const [user, setUser] = useState(false);
   const router = useRouter();
   useEffect(() => {
     router.events.on('routeChangeStart', () => {
@@ -37,7 +39,9 @@ function MyApp({ Component, pageProps }) {
           waitingTime={400}
         />
         <Navbar />
-        <Component {...pageProps} />
+        <Authentication.Provider value={{ user, setUser }}>
+          <Component {...pageProps} />
+        </Authentication.Provider>
         <Footer />
       </navContext.Provider>
     </>
@@ -45,4 +49,4 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-export { navContext };
+export { navContext, Authentication };

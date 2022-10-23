@@ -2,32 +2,56 @@ import Layout from '../../../components/Layout';
 import { navContext } from '../../_app.js';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { ImLocation2 } from 'react-icons/im';
 import Post from './Post';
+
 const Indeed = () => {
   const Loader = useContext(navContext);
   const router = useRouter();
+  const [posts, setPosts] = useState([]);
+  const [topic, setTopic] = useState('');
+  const [location, setLocation] = useState('');
+  const [error, setError] = useState(false);
 
-  // const fetchProduct = async (event) => {
-  //   event.preventDefault();
-  //   Loader.setProgress(20);
-  //   let URL = document.getElementById('url').value;
-  //   const req = await fetch('http://127.0.0.1:5000/api/review/amazon/', {
-  //     method: 'POST',
-  //     body: JSON.stringify({ url: URL }),
-  //     headers: { 'content-type': 'application/json' },
-  //   });
-  //   const resp = await req.json();
-  //   if (resp) {
-  //     console.log(resp);
-  //     Loader.setProgress(100);
-  //     if (resp.status == 1) {
-  //       setProduct([resp.result]);
-  //     }
-  //   }
-  // };
+  const onTopic = (event) => {
+    setTopic(event.target.value);
+    fetchJobs(topic, location);
+  };
+  const onLocation = (event) => {
+    setLocation(event.target.value);
+    fetchJobs(topic, location);
+  };
+
+  const fetchJobs = async (t, l) => {
+    Loader.setProgress(10);
+    try {
+      const req = await fetch(
+        `http://127.0.0.1:5000/api/jobs/${t.length == 0 ? 'internship' : t}/${
+          l.length == 0 ? 'islamabad' : l
+        }`
+      );
+      const resp = await req.json();
+      Loader.setProgress(30);
+      if (resp) {
+        Loader.setProgress(100);
+        if (resp.status == 1) {
+          setPosts(resp.Jobs);
+        } else {
+          setError(true);
+        }
+      }
+    } catch (error) {
+      setError(true);
+      Loader.setProgress(100);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobs(topic, location);
+  }, []);
+
   return (
     <Layout title="Indeed">
       <div className="container-fluid indeed_board_container">
@@ -50,6 +74,8 @@ const Indeed = () => {
                 type="text"
                 name=""
                 id=""
+                value={topic}
+                onChange={onTopic}
                 className=" py-2 px-2"
                 placeholder="Hi Usman, would you tell me what you're looking for?"
               />
@@ -67,6 +93,8 @@ const Indeed = () => {
                 id=""
                 className=" py-2 px-2"
                 placeholder="Where do you live?"
+                value={location}
+                onChange={onLocation}
               />
               <div className="">
                 <ImLocation2 style={{ color: 'white', fontSize: '1.5rem' }} />
@@ -75,8 +103,12 @@ const Indeed = () => {
           </div>
         </div>
         {/* Job Posting  */}
-        <Post />
-        <Post />
+        {posts &&
+          posts.map((post, index) => {
+            return <Post key={index} data={post} />;
+          })}
+
+        {error && <p>Something went wrong.</p>}
       </div>
     </Layout>
   );

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { navContext } from '../pages/_app';
 import { useContext, useEffect } from 'react';
+import { AiOutlineUser } from 'react-icons/ai';
 
 const Navbar = () => {
   const router = useRouter();
@@ -61,6 +62,15 @@ const Navbar = () => {
                 How it works
               </li>
             </Link>
+            <li className={`mx-4 `}>
+              <AiOutlineUser
+                style={{
+                  color: 'white',
+                  fontSize: '2rem',
+                  marginTop: '-5px',
+                }}
+              ></AiOutlineUser>
+            </li>
           </ul>
           <div className="d-md-none d-block">
             <Hamburger
