@@ -1,0 +1,30 @@
+{
+  "name": "mockify",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-query-firebase/firestore": "^1.0.0-dev.7",
+    "bootstrap": "^5.2.2",
+    "firebase": "^9.12.1",
+    "hamburger-react": "^2.5.0",
+    "next": "12.3.1",
+    "react": "18.2.0",
+    "react-circular-progressbar": "^2.1.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.41.2",
+    "react-icons": "^4.6.0",
+    "react-loading-skeleton": "^3.1.0",
+    "react-toastify": "^9.1.1",
+    "react-top-loading-bar": "^2.3.1"
+  },
+  "devDependencies": {
+    "eslint": "8.25.0",
+    "eslint-config-next": "12.3.1"
+  }
+}
