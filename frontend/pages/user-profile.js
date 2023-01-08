@@ -32,7 +32,7 @@ const User = () => {
   const [companyName, setCompanyName] = useState('');
   const [companyLocation, setCompanyLocation] = useState('');
   const [skills, setSkills] = useState('');
-  const currentUser = JSON.parse(localStorage.getItem('user'));
+  // const currentUser = JSON.parse(localStorage.getItem('user'));
   const nameTrigger = () => {
     setName('');
     document.getElementById('nameField').disabled = false;

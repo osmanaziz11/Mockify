@@ -30,6 +30,7 @@ import useApplication from '../hooks/hooks';
 import ToastMessage from './ToastMessage';
 
 const Login = () => {
+  const { userAuth } = useApplication();
   const router = useRouter();
 
   const withGoogle = async () => {
@@ -96,11 +97,9 @@ const Login = () => {
     }
     router.replace('/Login');
   };
-  if (typeof window !== 'undefined') {
-    if (localStorage.getItem('user')) {
-      router.replace('/user-profile');
-      return <h1>Loading</h1>;
-    }
+  if (1) {
+    router.replace('/user-profile');
+    return <h1>Loading...</h1>;
   }
   return (
     <>
@@ -115,7 +114,6 @@ const Login = () => {
           minHeight: 'calc(100vh - 190px)',
         }}
       >
-        {' '}
         <ToastContainer
           position="top-center"
           autoClose={2000}

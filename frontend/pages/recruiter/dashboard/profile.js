@@ -14,6 +14,7 @@ import {
 import useApplication, { ApplicationHook } from '../../../hooks/hooks';
 import ToastMessage from '../../../components/ToastMessage';
 import Toastify from '../../../components/Toastify';
+import { toast } from 'react-toastify';
 
 const Recruiter = () => {
   const [posts, setPosts] = useState([]);

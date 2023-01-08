@@ -9,12 +9,14 @@ import FeedPost from './Jobs/components/FeedPost';
 import SkeletonPosts from '../components/SkimmingEffect/SkeletonPosts';
 import { db } from '../firebaseAuth/firebase.config';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import useApplication from '../hooks/hooks';
 
 const Feed = () => {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
   const [Loading, setLoading] = useState(true);
-  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const { userAuth } = useApplication();
+  const currentUser = userAuth;
   var today = new Date();
   var curHr = today.getHours();
   var days = [
@@ -57,7 +59,10 @@ const Feed = () => {
   useEffect(() => {
     fetchJobs();
   }, []);
-
+  if (userAuth) {
+    router.replace('/Login');
+    return <h1>Loading...</h1>;
+  }
   return (
     <Layout title="Jobs Feed">
       <div className="container-fluid indeed_board_container">

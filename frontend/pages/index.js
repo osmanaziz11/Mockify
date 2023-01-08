@@ -11,9 +11,9 @@ const Index = () => {
               AI Powered <span>Fake Job</span> Detector
             </h1>
             <p className="text-center my-4">
-              This protects you from getting ripped off when shopping online.
-              Join the secure shopping revolution and get the the truth about
-              products, reviews, and sellers before you buy.
+              Fake job detector helps you to not fall into the trap of
+              fraudulent employers that employ people to rip them of and make
+              money in the process.
             </p>
             <Link href="/Jobs/">
               <button

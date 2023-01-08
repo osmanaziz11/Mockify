@@ -5,17 +5,17 @@ import { navContext } from '../pages/_app';
 import { useContext, useEffect } from 'react';
 import { GoSearch } from 'react-icons/go';
 import { AiOutlineUser } from 'react-icons/ai';
+import useApplication from '../hooks/hooks';
 const Navbar = () => {
   const router = useRouter();
   const navToggle = useContext(navContext);
-
+  const { setUserAuth, setRecruiterAuth } = useApplication();
   useEffect(() => {
-    router.events.on('routeChangeComplete', () => {
-      if (navToggle.NavStatus) {
-        // document.getElementsByClassName('hamburger-react')[0].click();
-      }
-    });
-  }, [router.events]);
+    typeof window !== 'undefined' &&
+      setUserAuth(JSON.parse(localStorage.getItem('user')));
+    typeof window !== 'undefined' &&
+      setRecruiterAuth(JSON.parse(localStorage.getItem('recruiter')));
+  }, []);
   return (
     <div className="container-fluid header mb-5 shadow">
       <div className="row">
@@ -79,9 +79,7 @@ const Navbar = () => {
                 About
               </li>
             </Link>
-            {/* {( localStorage.getItem('user')) ||
-            (
-              localStorage.getItem('recruiter')) ? (
+            {typeof window !== 'undefined' && localStorage.getItem('user') ? (
               <Link href="/user-profile">
                 <li className={`mx-3`}>
                   <div className="circleAvatar">
@@ -89,19 +87,19 @@ const Navbar = () => {
                   </div>
                 </li>
               </Link>
-            ) : ( */}
-            <Link href="/Login">
-              <li className={`mx-4 `}>
-                <AiOutlineUser
-                  style={{
-                    color: 'white',
-                    fontSize: '2rem',
-                    marginTop: '-5px',
-                  }}
-                ></AiOutlineUser>
-              </li>
-            </Link>
-            {/* )} */}
+            ) : (
+              <Link href="/Login">
+                <li className={`mx-4 `}>
+                  <AiOutlineUser
+                    style={{
+                      color: 'white',
+                      fontSize: '2rem',
+                      marginTop: '-5px',
+                    }}
+                  ></AiOutlineUser>
+                </li>
+              </Link>
+            )}
           </ul>
           <div className="d-md-none d-block">
             <Hamburger

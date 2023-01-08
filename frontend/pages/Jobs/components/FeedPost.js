@@ -88,7 +88,7 @@ const FeedPost = ({ data }) => {
             <div className="row my-2">
               <div className="col d-flex justify-content-center align-items-center">
                 <a style={{ cursor: 'pointer' }}>
-                  <Link href={`/recruiter-profile/${data.username}`}>
+                  <Link href={`/recruiter-profile/`}>
                     <h5 className="text">{data.name}</h5>
                   </Link>
                 </a>
